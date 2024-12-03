@@ -22,10 +22,29 @@ import { Socket } from 'phoenix'
 import { LiveSocket } from 'phoenix_live_view'
 import topbar from '../vendor/topbar'
 
+import { Sortable } from "sortablejs"
+
+const Hooks = {
+  Custom: {
+    mounted() {
+      console.log('mounted')
+      this.handleEvent('event', () => {
+        console.log('handling event')
+      })
+    }
+  },
+  Sortable: {
+    mounted() {
+      new Sortable(this.el)
+    }
+  }
+}
+
 const csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute('content')
 const liveSocket = new LiveSocket('/live', Socket, {
   longPollFallbackMs: 2500,
-  params: { _csrf_token: csrfToken }
+  params: { _csrf_token: csrfToken },
+  hooks: Hooks
 })
 
 // Show progress bar on live navigation and form submits
