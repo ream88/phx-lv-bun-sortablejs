@@ -31,14 +31,13 @@ config :test, TestWeb.Endpoint,
 # at the `config/runtime.exs`.
 config :test, Test.Mailer, adapter: Swoosh.Adapters.Local
 
-# Configure esbuild (the version is required)
-config :esbuild,
-  version: "0.17.11",
+# Configure bun (the version is required)
+config :bun,
+  version: "1.1.34",
   test: [
-    args:
-      ~w(js/app.js --bundle --target=es2017 --outdir=../priv/static/assets --external:/fonts/* --external:/images/*),
+    args: ~w(build js/app.js  --outdir=../priv/static/assets),
     cd: Path.expand("../assets", __DIR__),
-    env: %{"NODE_PATH" => Path.expand("../deps", __DIR__)}
+    env: %{}
   ]
 
 # Configure tailwind (the version is required)
