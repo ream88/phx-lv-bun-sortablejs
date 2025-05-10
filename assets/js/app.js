@@ -29,7 +29,7 @@ const Hooks = {
     mounted() {
       console.log('mounted')
       this.handleEvent('event', () => {
-        console.log('handling event')
+        alert('The bug is fixed!')
       })
     }
   },

@@ -33,7 +33,7 @@ config :test, Test.Mailer, adapter: Swoosh.Adapters.Local
 
 # Configure bun (the version is required)
 config :bun,
-  version: "1.1.34",
+  version: "1.2.12",
   test: [
     args: ~w(build js/app.js  --outdir=../priv/static/assets),
     cd: Path.expand("../assets", __DIR__),

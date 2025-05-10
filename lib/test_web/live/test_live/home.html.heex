@@ -40,7 +40,7 @@
 </div>
 
 <div class="px-4 py-10 sm:px-6 sm:py-28 lg:px-8 xl:px-28 xl:py-32">
-  <div class="mx-auto max-w-xl lg:mx-0 mb-8">
+  <div class="mx-auto max-w-xl lg:mx-0 mb-8 space-y-4">
     <button
       id="hook"
       phx-hook="Custom"
@@ -49,6 +49,10 @@
     >
       Trigger custom event
     </button>
+
+    <p class="text-xs text-zinc-500">
+      If this button triggers an alert, the bug is finally fixed. Otherwise, Sortable.js and Bun still don't work together.
+    </p>
   </div>
 
   <div class="mx-auto max-w-xl lg:mx-0">
